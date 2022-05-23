@@ -43,19 +43,30 @@ html {
 .button_group {
     margin: 20px 0;
     display: flex;
-    color: rgb(0, 136, 248);
+    color: white;
+    background: gray;
+    border-radius: 10px;
 }
 
 .add_button {
-    margin: 0 30px;
-    border-radius: 10px;
+    margin: 0;
     padding: 8px 30px;
-    background: cornflowerblue;
+    background: gray;
     border: none;
     color: white;
     font-size: x-large;
     cursor: pointer;
     transition: all 0.5s;
+}
+
+.left_button {
+    border-radius: 10px 0 0 10px;
+    border: 1px black solid;
+}
+
+.right_button {
+    border-radius: 0 10px 10px 0;
+    border: 1px black solid;
 }
 
 .add_button:hover {

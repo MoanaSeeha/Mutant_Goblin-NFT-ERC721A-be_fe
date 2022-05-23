@@ -98,13 +98,17 @@ export default function App() {
           but if yer greedy thenn u can mint moar for .0042<br/>
         </div>
         <div className="button_group">
-          <button className="add_button" onClick={() => {
+          <button className="add_button left_button" onClick={() => {
             if(amount > 1) {
               return setAmount(amount-1);
             }
           }}>-</button>
-          <p style={{width: '30px', textAlign: 'center'}}>{amount}</p>
-          <button className="add_button" onClick={() => setAmount(amount+1)}>+</button>
+          <p style={{width: '30px', textAlign: 'center', padding: '0 30px'}}>{amount}</p>
+          <button className="add_button right_button" onClick={() => {
+            if(amount < 20) {
+              return setAmount(amount+1);
+            }
+          }}>+</button>
         </div>
         <button className="mint_button" onClick={mint}>Mint</button> 
       </div>
