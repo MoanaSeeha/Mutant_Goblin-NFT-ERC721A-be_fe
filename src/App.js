@@ -1,5 +1,6 @@
 import React,{ useState, useEffect } from "react";
 import { ethers } from "ethers";
+import { useAlert } from 'react-alert'
 
 import Loading from "./components/loading";
 
@@ -17,6 +18,7 @@ export default function App() {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const contract = new ethers.Contract(NFT_address, nft_abi, signer);
+  const alert = useAlert()
 
   useEffect(() => {
     async function fetchData() {
@@ -27,8 +29,7 @@ export default function App() {
 
   const connect = async () => {
     if(account === '') {
-      console.log('unconnected')
-      await window.ethereum.send("eth_requestAccounts");
+      // await window.ethereum.send("eth_requestAccounts");
       setChain('0x'+ window.ethereum?.networkVersion?.toString(16));
       await window.ethereum.request({
         method: "wallet_requestPermissions",
@@ -51,6 +52,7 @@ export default function App() {
       if (!window.ethereum)
         throw new Error("No crypto wallet found. Please install it.");
       if(connected_chain === '0x4' && account !== '') {
+        setLoading(true);
         let mintedCount = (await contract.mintedCount(account)).toString();
         let _amount = amount
         console.log(mintedCount, account);
@@ -64,9 +66,11 @@ export default function App() {
         let fee = (_cost * _amount).toString();
         console.log(_amount);
         const transaction = await contract.mint(amount, { value: fee })
-        setLoading(true);
         await transaction.wait();
         setLoading(false);
+        alert.show("Welcome successfully Minted!", {
+          type: 'success'
+        });
       }
       else if(connected_chain !== '0x4') {
         await window.ethereum
@@ -79,9 +83,17 @@ export default function App() {
       if(account === '') {
         if(window.confirm('You Should Connect Wallet First!')) connect();
       }
-
+      setLoading(false);
     } catch (err) {
       console.log('err', err)
+      if (err.data !== undefined && err.data.message !== undefined) 
+        alert.show(err.data.message.err, {
+          type: 'error'
+        });
+      else alert.show(err.message, {
+        type: 'error'
+      });
+      setLoading(false);
     }
   };
 
@@ -92,6 +104,7 @@ export default function App() {
         {account===''?'Connect Wallet':account.substring(0, 5) + '...'+account.substring(account.length-4, account.length)}
       </button>
       <div className="mainbox">
+        <div className="border_box">
         <div className="description">
           AAAAAAAUUUUUGGGHHHHH deez ar deffinitly NOOOOTT gobblins GOBLINNNNNNNNns wekm ta goblintown yoo sniksnakr DEJEN RATS oooooh rats are yummmz dis a NEFTEEE O GOBBLINGS on da BLOKCHIN wat? oh. crustybutt da goblinking say GEE EMMM DEDJEN RUTS an queenie saay HLLO SWEATIES ok dats all byeby
           <br/>
@@ -113,6 +126,8 @@ export default function App() {
         </div>
         <button className="mint_button" onClick={mint}>Mint</button> 
       </div>
+        </div>
+        
     </>
   );
 }

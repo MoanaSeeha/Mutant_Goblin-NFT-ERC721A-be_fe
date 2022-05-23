@@ -38,6 +38,17 @@ html {
     flex-direction: column;
     margin: 0 auto;
     font-family: cursive;
+
+}
+
+.border_box {
+    border: gray 2px dashed;
+    border-radius: 10px;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .button_group {
@@ -45,6 +56,7 @@ html {
     display: flex;
     color: white;
     background: gray;
+    opacity: 0.9;
     border-radius: 10px;
 }
 
@@ -52,6 +64,7 @@ html {
     margin: 0;
     padding: 8px 30px;
     background: gray;
+    opacity: 0.8;
     border: none;
     color: white;
     font-size: x-large;
@@ -74,9 +87,9 @@ html {
 }
 
 .mint_button {
-    margin: 0 30px;
-    border: gray 2px dashed;
+    border: 2px dashed gray;
     border-radius: 10px;
+    margin: 0 30px;
     padding: 8px 30px;
     background: radial-gradient(rgb(202, 240, 97), pink);
     color: rgb(92, 94, 238);
@@ -91,8 +104,6 @@ html {
 }
 
 .description {
-    padding: 20px;
-    border: gray 1px dashed;
     border-radius: 10px;
     margin-bottom: 20px;
 }
