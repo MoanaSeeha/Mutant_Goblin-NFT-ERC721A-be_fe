@@ -64,7 +64,7 @@ html {
 
 .mint_button {
     margin: 0 30px;
-    border: gray 1px solid;
+    border: gray 2px dashed;
     border-radius: 10px;
     padding: 8px 30px;
     background: radial-gradient(rgb(202, 240, 97), pink);
@@ -84,4 +84,24 @@ html {
     border: gray 1px solid;
     border-radius: 10px;
     margin-bottom: 20px;
+}
+
+
+.loading_panel {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: gray;
+    opacity: 0.7;
+    z-index: 10;
+}
+
+.loading{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+    z-index: 21;
 }

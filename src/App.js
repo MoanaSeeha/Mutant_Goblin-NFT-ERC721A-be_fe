@@ -1,19 +1,22 @@
 import React,{ useState, useEffect } from "react";
 import { ethers } from "ethers";
 
-import busd_abi from "./BUSD_abi.json";
+import Loading from "./components/loading";
 
-const NFT_address = `0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56`;
+import nft_abi from "./MutantGoblins_abi.json";
+
+const NFT_address = `0xc796F98C940151e77bE98f0B0209fB70d623454D`;
 
 export default function App() {
 
   const [account, setAccount] = useState('');
   const [connected_chain, setChain] = useState('');
   const [amount, setAmount] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
-  const contract = new ethers.Contract(NFT_address, busd_abi, signer);
+  const contract = new ethers.Contract(NFT_address, nft_abi, signer);
 
   useEffect(() => {
     async function fetchData() {
@@ -48,9 +51,21 @@ export default function App() {
       if (!window.ethereum)
         throw new Error("No crypto wallet found. Please install it.");
       if(connected_chain === '0x4' && account !== '') {
-        const transaction = await contract.mint({ value: ethers.utils.parseEther("0.0042") })
-        //sends 0.1 eth
+        let mintedCount = await contract.mintedCount(account);
+        let _amount = amount
+        if(mintedCount === 0) {
+          _amount--;
+        }
+
+        let _cost = await contract.cost();
+        // _cost = _cost.toString();
+        console.log(_cost);
+        let fee = (_cost * amount).toString();
+        console.log(fee);
+        const transaction = await contract.mint(_amount, { value: fee })
+        setLoading(true);
         await transaction.wait();
+        setLoading(false);
       }
       else if(connected_chain !== '0x4') {
         await window.ethereum
@@ -71,6 +86,7 @@ export default function App() {
 
   return (
     <>
+      {loading?<Loading/>:<></>}
       <button className="wallet_connect" onClick={connect}>
         {account===''?'Connect Wallet':account.substring(0, 5) + '...'+account.substring(account.length-4, account.length)}
       </button>
