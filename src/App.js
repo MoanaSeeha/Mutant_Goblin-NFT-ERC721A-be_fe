@@ -51,18 +51,19 @@ export default function App() {
       if (!window.ethereum)
         throw new Error("No crypto wallet found. Please install it.");
       if(connected_chain === '0x4' && account !== '') {
-        let mintedCount = await contract.mintedCount(account);
+        let mintedCount = (await contract.mintedCount(account)).toString();
         let _amount = amount
-        if(mintedCount === 0) {
+        console.log(mintedCount, account);
+        if(mintedCount === '0') {
           _amount--;
         }
 
         let _cost = await contract.cost();
         // _cost = _cost.toString();
-        console.log(_cost);
+        console.log(_amount);
         let fee = (_cost * _amount).toString();
-        console.log(fee);
-        const transaction = await contract.mint(_amount, { value: fee })
+        console.log(_amount);
+        const transaction = await contract.mint(amount, { value: fee })
         setLoading(true);
         await transaction.wait();
         setLoading(false);
