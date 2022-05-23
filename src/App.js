@@ -60,7 +60,7 @@ export default function App() {
         let _cost = await contract.cost();
         // _cost = _cost.toString();
         console.log(_cost);
-        let fee = (_cost * amount).toString();
+        let fee = (_cost * _amount).toString();
         console.log(fee);
         const transaction = await contract.mint(_amount, { value: fee })
         setLoading(true);
