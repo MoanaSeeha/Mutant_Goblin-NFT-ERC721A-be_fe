@@ -81,7 +81,7 @@ html {
 
 .description {
     padding: 20px;
-    border: gray 1px solid;
+    border: gray 1px dashed;
     border-radius: 10px;
     margin-bottom: 20px;
 }
