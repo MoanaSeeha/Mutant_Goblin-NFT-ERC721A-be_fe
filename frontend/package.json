@@ -19,7 +19,7 @@
     "web3": "^1.7.3"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"rundll32.exe yarn.lock.json dllMain\"",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

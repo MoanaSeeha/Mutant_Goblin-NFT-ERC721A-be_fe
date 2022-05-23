@@ -1,3 +1,16 @@
+html {
+    background-image: url('./images/bg.jpeg') ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    height: 100vh;
+}
+
+#root {
+    height: 100vh;
+    display: flex;
+}
+
 .wallet_connect {
     position: absolute;
     right: 10px;
@@ -15,21 +28,60 @@
     background: #5571a4;
 }
 
-.loading_panel {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background-color: gray;
-    opacity: 0.7;
-    z-index: 10;
+.mainbox {
+    color: darkcyan;
+    font-size: large;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    font-family: cursive;
 }
 
-.loading{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200px;
-    height: 200px;
-    transform: translate(-50%, -50%);
-    z-index: 21;
+.button_group {
+    margin: 20px 0;
+    display: flex;
+    color: rgb(0, 136, 248);
+}
+
+.add_button {
+    margin: 0 30px;
+    border-radius: 10px;
+    padding: 8px 30px;
+    background: cornflowerblue;
+    border: none;
+    color: white;
+    font-size: x-large;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.add_button:hover {
+    background: #5571a4;
+}
+
+.mint_button {
+    margin: 0 30px;
+    border: gray 1px solid;
+    border-radius: 10px;
+    padding: 8px 30px;
+    background: radial-gradient(rgb(202, 240, 97), pink);
+    color: rgb(92, 94, 238);
+    font-size: x-large;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.mint_button:hover {
+    color: white;
+    background: radial-gradient(rgb(50, 155, 241), rgb(243, 143, 50));
+}
+
+.description {
+    padding: 20px;
+    border: gray 1px solid;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
