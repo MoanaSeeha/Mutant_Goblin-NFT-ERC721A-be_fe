@@ -132,3 +132,7 @@ html {
     background-color: rgba(1, 1, 1, 0) !important;
     box-shadow: none !important;
 }
+
+#__react-alert__ > div > div > div > span {
+    color: gray;
+}
