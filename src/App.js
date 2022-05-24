@@ -105,7 +105,7 @@ export default function App() {
       </button>
       <div className="mainbox">
         <div className="border_box">
-          <img src={`${process.env.PUBLIC_URL}/images/Transparent_File-01.png`} width={`300px`}/>
+          <img alt='' src={`${process.env.PUBLIC_URL}/images/Transparent_File-01.png`} width={`300px`}/>
         <div className="description">
           <p style={{fontSize: 'xx-large'}}>AAAAAAAAUUUUGGGGGHHHHH.. city contaminated.. all degens become fucking mutants.. AAAAAAAAAAAUUUUUUGGGGGGHHHH.. join us now already.</p>
           First mint is FREE.
@@ -129,7 +129,7 @@ export default function App() {
           }}>+</button>
         </div>
         <button className="mint_button" onClick={mint}>Mint</button> 
-        <p style={{display: 'flex'}}># out of 9999 of these fuckers left. <img src={`${process.env.PUBLIC_URL}/images/etherscan.c49ca24.svg`} width={'30px'} style={{margin: '0 10px', cursor: 'pointer'}}/></p>
+        <p style={{display: 'flex'}}># out of 9999 of these fuckers left. <img alt='' src={`${process.env.PUBLIC_URL}/images/etherscan.c49ca24.svg`} width={'30px'} style={{margin: '0 10px', cursor: 'pointer'}}/></p>
       </div>
         </div>
         
