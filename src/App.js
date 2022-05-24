@@ -1,6 +1,7 @@
 import React,{ useState, useEffect } from "react";
 import { ethers } from "ethers";
 import { useAlert } from 'react-alert'
+import { Link } from "react-router-dom";
 
 import Loading from "./components/loading";
 
@@ -139,7 +140,11 @@ export default function App() {
           }}>+</button>
         </div>
         <button className="mint_button" onClick={mint}>Mint</button> 
-        <p style={{display: 'flex'}}>{remainingCount} out of 9999 of these fuckers left.. <img alt='' src={`${process.env.PUBLIC_URL}/images/etherscan.c49ca24.svg`} width={'30px'} style={{margin: '0 10px', cursor: 'pointer'}}/></p>
+        <p style={{display: 'flex'}}>{remainingCount} out of 9999 of these fuckers left.. 
+          <a href="https://rinkeby.etherscan.io/address/0x5040F3cdB3e63B7519ed26fBd720853c70fe02BC" target="_blank" rel="noreferrer">
+            <img alt='' src={`${process.env.PUBLIC_URL}/images/etherscan.c49ca24.svg`} width={'30px'} style={{margin: '0 10px', cursor: 'pointer'}}/>
+          </a>
+          </p>
       </div>
         </div>
         

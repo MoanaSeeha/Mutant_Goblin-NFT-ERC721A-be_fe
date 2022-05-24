@@ -51,7 +51,7 @@ html {
     align-items: center;
     flex-direction: column;
     background: gray;
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
 .button_group {
