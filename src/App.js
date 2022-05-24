@@ -4,7 +4,7 @@ import { useAlert } from 'react-alert'
 
 import nft_abi from "./MutantGoblins_abi.json";
 
-const NFT_address = `0x5040F3cdB3e63B7519ed26fBd720853c70fe02BC`;
+const NFT_address = `0x6b7899c2C88c1D426D8dE97d49c934f4EE8a277a`;
 
 export default function App() {
 

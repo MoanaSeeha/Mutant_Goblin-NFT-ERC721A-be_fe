@@ -1749,7 +1749,7 @@ contract MutantGoblins is ERC721A, Ownable, ReentrancyGuard {
             "MutantGoblins: URI query for nonexistent token"
         );
 
-        if (revealed == false) {
+        if (revealed == true) {
             return hiddenMetadataUri;
         }
 
