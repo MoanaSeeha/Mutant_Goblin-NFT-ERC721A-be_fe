@@ -107,7 +107,7 @@ export default function App() {
         <div className="border_box">
           <img alt='' src={`${process.env.PUBLIC_URL}/images/Transparent_File-01.png`} width={`300px`}/>
         <div className="description">
-          <p style={{fontSize: 'xx-large'}}>AAAAAAAAUUUUGGGGGHHHHH.. city contaminated.. all degens become fucking mutants.. AAAAAAAAAAAUUUUUUGGGGGGHHHH.. join us now already.</p>
+          <p style={{fontSize: 'xx-large'}}>AAAAAAAAUUUUGGGGGHHHHH.. city contaminated.. all degens become fucking mutants.. AAAAAAAAAAAUUUUUUGGGGGGHHHH.. join us now already..</p>
           First mint is FREE.
           <br/>
           After that it's 0.0042 ETH per mutant goblin.
