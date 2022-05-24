@@ -2,8 +2,6 @@ import React,{ useState, useEffect } from "react";
 import { ethers } from "ethers";
 import { useAlert } from 'react-alert'
 
-import Loading from "./components/loading";
-
 import nft_abi from "./MutantGoblins_abi.json";
 
 const NFT_address = `0x5040F3cdB3e63B7519ed26fBd720853c70fe02BC`;
@@ -13,7 +11,6 @@ export default function App() {
   const [account, setAccount] = useState('');
   const [connected_chain, setChain] = useState('');
   const [amount, setAmount] = useState(1);
-  const [loading, setLoading] = useState(false);
   const[remainingCount,setRemainingCount] = useState(9999);
 
   const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -59,7 +56,6 @@ export default function App() {
       if (!window.ethereum)
         throw new Error("No crypto wallet found. Please install it.");
       if(connected_chain === '0x4' && account !== '') {
-        setLoading(true);
         let mintedCount = (await contract.mintedCount(account)).toString();
         let _amount = amount
         console.log(mintedCount, account);
@@ -73,8 +69,10 @@ export default function App() {
         let fee = (_cost * _amount).toString();
         console.log(_amount);
         const transaction = await contract.mint(amount, { value: fee })
+        alert.show("Minting...", {
+          type: 'info'
+        });
         await transaction.wait();
-        setLoading(false);
         alert.show("Welcome successfully Minted!", {
           type: 'success'
         });
@@ -90,7 +88,6 @@ export default function App() {
       if(account === '') {
         if(window.confirm('You Should Connect Wallet First!')) connect();
       }
-      setLoading(false);
     } catch (err) {
       console.log('err', err)
       if (err.data !== undefined && err.data.message !== undefined) 
@@ -100,13 +97,11 @@ export default function App() {
       else alert.show(err.message, {
         type: 'error'
       });
-      setLoading(false);
     }
   };
 
   return (
     <>
-      {loading?<Loading/>:<></>}
       <button className="wallet_connect" onClick={connect}>
         {account===''?'Connect Wallet':account.substring(0, 5) + '...'+account.substring(account.length-4, account.length)}
       </button>
