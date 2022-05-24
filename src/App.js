@@ -24,13 +24,20 @@ export default function App() {
   useEffect(() => {
     async function fetchData() {
       setAccount('')
+    }
+    fetchData();
+    
+  }, [])
+
+  useEffect(() => {
+    async function fetchData() {
       let m = Number(await contract.maxSupply());
       let t = Number(await contract.totalSupply());
       setRemainingCount(m-t);
     }
     fetchData();
     
-  }, [])
+  }, [contract])
 
   const connect = async () => {
     if(account === '') {
