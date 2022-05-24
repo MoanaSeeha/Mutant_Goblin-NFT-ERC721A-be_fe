@@ -105,11 +105,15 @@ export default function App() {
       </button>
       <div className="mainbox">
         <div className="border_box">
+          <img src={`${process.env.PUBLIC_URL}/images/Transparent_File-01.png`} width={`300px`}/>
         <div className="description">
-          AAAAAAAUUUUUGGGHHHHH deez ar deffinitly NOOOOTT gobblins GOBLINNNNNNNNns wekm ta goblintown yoo sniksnakr DEJEN RATS oooooh rats are yummmz dis a NEFTEEE O GOBBLINGS on da BLOKCHIN wat? oh. crustybutt da goblinking say GEE EMMM DEDJEN RUTS an queenie saay HLLO SWEATIES ok dats all byeby
+          <p style={{fontSize: 'xx-large'}}>AAAAAAAAUUUUGGGGGHHHHH.. city contaminated.. all degens become fucking mutants.. AAAAAAAAAAAUUUUUUGGGGGGHHHH.. join us now already.</p>
+          First mint is FREE.
           <br/>
-          yur first mint is FREE<br/>
-          but if yer greedy thenn u can mint moar for .0042<br/>
+          After that it's 0.0042 ETH per mutant goblin.
+          <br/>
+          721A contract so gas is cheaper if you mint 2 or more.
+          <br/>
         </div>
         <div className="button_group">
           <button className="add_button left_button" onClick={() => {
@@ -125,6 +129,7 @@ export default function App() {
           }}>+</button>
         </div>
         <button className="mint_button" onClick={mint}>Mint</button> 
+        <p style={{display: 'flex'}}># out of 9999 of these fuckers left. <img src={`${process.env.PUBLIC_URL}/images/etherscan.c49ca24.svg`} width={'30px'} style={{margin: '0 10px', cursor: 'pointer'}}/></p>
       </div>
         </div>
         

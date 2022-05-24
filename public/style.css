@@ -1,5 +1,5 @@
 html {
-    background-image: url('./images/bg.jpeg') ;
+    background-image: url('./images/bg.jpg') ;
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
@@ -29,7 +29,7 @@ html {
 }
 
 .mainbox {
-    color: darkcyan;
+    color: #ffc188;
     font-size: large;
     width: 80%;
     display: flex;
@@ -49,13 +49,15 @@ html {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: gray;
+    opacity: 0.9;
 }
 
 .button_group {
     margin: 20px 0;
     display: flex;
     color: white;
-    background: gray;
+    background: #437387;
     opacity: 0.9;
     border-radius: 10px;
 }
@@ -106,6 +108,8 @@ html {
 .description {
     border-radius: 10px;
     margin-bottom: 20px;
+    font-size: x-large;
+    text-align: center;
 }
 
 
