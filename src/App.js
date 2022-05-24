@@ -6,7 +6,7 @@ import Loading from "./components/loading";
 
 import nft_abi from "./MutantGoblins_abi.json";
 
-const NFT_address = `0xe7069c464f585971899650a37b260b7C55a4aE78`;
+const NFT_address = `0x5040F3cdB3e63B7519ed26fBd720853c70fe02BC`;
 
 export default function App() {
 

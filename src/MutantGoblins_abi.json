@@ -345,6 +345,13 @@
     "type": "function"
   },
   {
+    "inputs": [{ "internalType": "bool", "name": "_state", "type": "bool" }],
+    "name": "setRevealed",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [
       { "internalType": "string", "name": "_uriPrefix", "type": "string" }
     ],

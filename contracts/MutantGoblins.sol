@@ -1650,7 +1650,7 @@ contract MutantGoblins is ERC721A, Ownable, ReentrancyGuard {
     uint256 public maxSupply;
 
     bool public paused = false;
-    bool public revealed = false;
+    bool public revealed = true;
 
     mapping(address => uint256) private _walletMintedCount;
 
@@ -1793,6 +1793,10 @@ contract MutantGoblins is ERC721A, Ownable, ReentrancyGuard {
         paused = _state;
     }
 
+    function setRevealed(bool _state) public onlyOwner {
+        revealed = _state;
+    }
+    
     function setMerkleRoot(bytes32 _merkleRoot) public onlyOwner {
         merkleRoot = _merkleRoot;
     }
