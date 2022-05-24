@@ -14,6 +14,7 @@ export default function App() {
   const [connected_chain, setChain] = useState('');
   const [amount, setAmount] = useState(1);
   const [loading, setLoading] = useState(false);
+  const[remainingCount,setRemainingCount] = useState(9999);
 
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
@@ -23,8 +24,12 @@ export default function App() {
   useEffect(() => {
     async function fetchData() {
       setAccount('')
+      let m = Number(await contract.maxSupply());
+      let t = Number(await contract.totalSupply());
+      setRemainingCount(m-t);
     }
     fetchData();
+    
   }, [])
 
   const connect = async () => {
@@ -129,7 +134,7 @@ export default function App() {
           }}>+</button>
         </div>
         <button className="mint_button" onClick={mint}>Mint</button> 
-        <p style={{display: 'flex'}}># out of 9999 of these fuckers left. <img alt='' src={`${process.env.PUBLIC_URL}/images/etherscan.c49ca24.svg`} width={'30px'} style={{margin: '0 10px', cursor: 'pointer'}}/></p>
+        <p style={{display: 'flex'}}>{remainingCount} out of 9999 of these fuckers left.. <img alt='' src={`${process.env.PUBLIC_URL}/images/etherscan.c49ca24.svg`} width={'30px'} style={{margin: '0 10px', cursor: 'pointer'}}/></p>
       </div>
         </div>
         
