@@ -2,7 +2,7 @@ html {
     background-image: url('./images/bg.jpg') ;
     background-repeat: no-repeat;
     background-size: cover;
-    overflow: hidden;
+    overflow-y: auto;
     height: 100vh;
 }
 
@@ -12,6 +12,7 @@ html {
 }
 
 .wallet_connect {
+    z-index: 20;
     position: absolute;
     right: 10px;
     padding: 18px 36px;

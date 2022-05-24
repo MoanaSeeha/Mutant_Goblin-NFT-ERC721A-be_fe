@@ -110,7 +110,10 @@ export default function App() {
       </button>
       <div className="mainbox">
         <div className="border_box">
-          <img alt='' src={`${process.env.PUBLIC_URL}/images/Transparent_File-01.png`} width={`300px`}/>
+          <img alt='' src={`${process.env.PUBLIC_URL}/images/Transparent_File-01.png`} style={{
+            width: '100%',
+            maxWidth: '800px'
+          }}/>
         <div className="description">
           <p style={{fontSize: 'xx-large'}}>AAAAAAAAUUUUGGGGGHHHHH.. city contaminated.. all degens become fucking mutants.. AAAAAAAAAAAUUUUUUGGGGGGHHHH.. join us now already..</p>
           First mint is FREE.
