@@ -1,7 +1,6 @@
 import React,{ useState, useEffect } from "react";
 import { ethers } from "ethers";
 import { useAlert } from 'react-alert'
-import { Link } from "react-router-dom";
 
 import Loading from "./components/loading";
 
