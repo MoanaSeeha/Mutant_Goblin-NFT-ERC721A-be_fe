@@ -76,6 +76,9 @@ export default function App() {
         alert.show("Welcome successfully Minted!", {
           type: 'success'
         });
+        let m = Number(await contract.maxSupply());
+        let t = Number(await contract.totalSupply());
+        setRemainingCount(m-t);
       }
       else if(connected_chain !== '0x4') {
         await window.ethereum
